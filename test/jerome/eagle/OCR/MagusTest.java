@@ -26,11 +26,13 @@ public class MagusTest {
         Magus magus = new Magus();
 
         @Test
-        public void Given_NewCharacter_When_DisplayCharacterProperties_Then_DisplayNewCharacterProperties() {
+        public void Given_NewMagus_When_DisplayCharacterProperties_Then_DisplayNewMagusProperties() {
             magus.present();
             assertEquals("""
+                    Type de personnage : Mage
                     Point(s) de vie : 15
                     Point(s) d'attaque : 15
+                    
                     """, outContent.toString().replace("\r\n", "\n"));
         }
     }

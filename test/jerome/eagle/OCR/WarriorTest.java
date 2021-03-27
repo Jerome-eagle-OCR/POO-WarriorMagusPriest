@@ -26,11 +26,13 @@ public class WarriorTest {
         Warrior warrior = new Warrior();
 
         @Test
-        public void Given_NewCharacter_When_DisplayCharacterProperties_Then_DisplayNewCharacterProperties() {
+        public void Given_NewWarrior_When_DisplayCharacterProperties_Then_DisplayNewWarriorProperties() {
             warrior.present();
             assertEquals("""
+                    Type de personnage : Guerrier
                     Point(s) de vie : 10
                     Point(s) d'attaque : 10
+                    
                     """, outContent.toString().replace("\r\n", "\n"));
         }
     }
