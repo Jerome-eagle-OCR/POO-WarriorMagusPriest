@@ -4,9 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Warrior warrior = new Warrior();
-        warrior.present();
+        Warrior warrior1 = new Warrior();
+        warrior1.present();
+
+        Magus magus1 = new Magus();
+        magus1.present();
 
     }
-
 }
