@@ -10,5 +10,6 @@ public class Main {
         Magus magus1 = new Magus();
         magus1.present();
 
+        warrior1.winner(magus1);
     }
 }

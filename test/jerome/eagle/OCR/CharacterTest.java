@@ -23,14 +23,16 @@ public class CharacterTest {
             System.setOut(System.out);
         }
 
-        Character character = new Character();
+        Character character = new Character(0, 0,  "Test");
 
         @Test
         public void Given_NewCharacter_When_DisplayCharacterProperties_Then_DisplayNewCharacterProperties() {
             character.present();
             assertEquals("""
+                    Type de personnage : Test
                     Point(s) de vie : 0
                     Point(s) d'attaque : 0
+                    
                     """, outContent.toString().replace("\r\n", "\n"));
         }
 }
