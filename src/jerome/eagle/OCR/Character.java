@@ -23,6 +23,16 @@ public class Character {
     }
 
     /**
+     * substract attacking character's attack points from attacked character's healthPoints
+     * @param character attacked character
+     */
+    protected void actionOn(Character character) {
+        System.out.println("Le " + this.name + " attaque le " + character.name + " qui a " + character.healthPoints + " point(s) de vie :");
+        character.healthPoints -= this.attackPoints;
+        System.out.println("Le " + character.name + " n'a maintenant plus que " + character.healthPoints + " point(s) de vie\n");
+    }
+
+    /**
      * Compares characters points (heath or attack)
      * @param thisPoints attacking character's points
      * @param characterPoints attacked character's points
@@ -46,18 +56,23 @@ public class Character {
      * @return final strongest and so winner
      */
     protected Object winner(Character character) {
-        System.out.println("Le " + this.name + " attaque le " + character.name + " ! Suspens...");
-        System.out.println();
+        System.out.println("Le " + this.name + " se mesure au " + character.name + " :");
         Object strongest = compareCharacters(this.healthPoints, character.healthPoints, character);
         if (strongest.equals("")) {
             strongest = compareCharacters(this.attackPoints, character.attackPoints, character);
             if (strongest.equals("")) {
                 displayWinnerSentence(this.name);
                 return this;
+            } else if (strongest.equals(this)){
+                displayWinnerSentence(this.name);
+                return strongest;
             } else {
                 displayWinnerSentence(character.name);
                 return strongest;
             }
+        } else if(strongest.equals(this)) {
+            displayWinnerSentence(this.name);
+            return strongest;
         } else {
             displayWinnerSentence(character.name);
             return strongest;
@@ -68,6 +83,7 @@ public class Character {
      * Display winner sentence
      */
     private void displayWinnerSentence(String andTheWinnerIs) {
-            System.out.println("Le gagnant est : le " + andTheWinnerIs + "  " + "\\o/");
+            System.out.println("Le plus fort est le " + andTheWinnerIs + "  " + "\\o/");
         }
+
 }

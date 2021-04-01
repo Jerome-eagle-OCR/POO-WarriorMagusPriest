@@ -11,6 +11,10 @@ public class Main {
         magus1.present();
 
         Object winner = warrior1.winner(magus1);
-        System.out.println("(Object return test) " + winner.getClass().getSimpleName() + " wins !");
+        System.out.println("(Object return test) " + winner.getClass().getSimpleName() + " wins !\n");
+
+        warrior1.actionOn(magus1);
+        winner = warrior1.winner(magus1);
+        System.out.println("(Object return test) " + winner.getClass().getSimpleName() + " wins !\n");
     }
 }
