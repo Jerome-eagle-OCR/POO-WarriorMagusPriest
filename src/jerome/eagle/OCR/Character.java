@@ -29,12 +29,12 @@ public class Character {
      * @param character attacked character
      * @return return strongest character
      */
-    private String compareCharacters(int thisPoints, int characterPoints, Character character) {
+    private Object compareCharacters(int thisPoints, int characterPoints, Character character) {
         int comparePoints = thisPoints - characterPoints;
         if (comparePoints > 0) {
-            return this.name;
+            return this;
         } else if (comparePoints < 0) {
-            return character.name;
+            return character;
         } else {
             return "";
         }
@@ -43,20 +43,24 @@ public class Character {
     /**
      * Compares two characters first on health points, if tied then on attack points, if tied first character wins
      * @param character attacked character
+     * @return final strongest and so winner
      */
-    protected void winner(Character character) {
+    protected Object winner(Character character) {
         System.out.println("Le " + this.name + " attaque le " + character.name + " ! Suspens...");
         System.out.println();
-        String stongest = compareCharacters(this.healthPoints, character.healthPoints, character);
-        if (stongest.equals("")) {
-            stongest = compareCharacters(this.attackPoints, character.attackPoints, character);
-            if (stongest.equals("")) {
+        Object strongest = compareCharacters(this.healthPoints, character.healthPoints, character);
+        if (strongest.equals("")) {
+            strongest = compareCharacters(this.attackPoints, character.attackPoints, character);
+            if (strongest.equals("")) {
                 displayWinnerSentence(this.name);
+                return this;
             } else {
-                displayWinnerSentence(stongest);
+                displayWinnerSentence(character.name);
+                return strongest;
             }
         } else {
-            displayWinnerSentence(stongest);
+            displayWinnerSentence(character.name);
+            return strongest;
         }
     }
 

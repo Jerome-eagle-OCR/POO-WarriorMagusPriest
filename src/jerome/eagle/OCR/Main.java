@@ -10,6 +10,7 @@ public class Main {
         Magus magus1 = new Magus();
         magus1.present();
 
-        warrior1.winner(magus1);
+        Object winner = warrior1.winner(magus1);
+        System.out.println("(Object return test) " + winner.getClass().getSimpleName() + " wins !");
     }
 }
