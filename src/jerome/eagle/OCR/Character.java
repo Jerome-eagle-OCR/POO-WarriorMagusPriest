@@ -1,5 +1,7 @@
 package jerome.eagle.OCR;
 
+import java.util.Arrays;
+
 public class Character {
 
     protected int healthPoints;
@@ -60,17 +62,14 @@ public class Character {
         Object strongest = compareCharacters(this.healthPoints, character.healthPoints, character);
         if (strongest.equals("")) {
             strongest = compareCharacters(this.attackPoints, character.attackPoints, character);
-            if (strongest.equals("")) {
-                displayWinnerSentence(this.name);
-                return this;
-            } else if (strongest.equals(this)){
+            if (strongest.equals("") || strongest.equals(this)) {
                 displayWinnerSentence(this.name);
                 return strongest;
             } else {
                 displayWinnerSentence(character.name);
                 return strongest;
             }
-        } else if(strongest.equals(this)) {
+        } else if (strongest.equals(this)) {
             displayWinnerSentence(this.name);
             return strongest;
         } else {
