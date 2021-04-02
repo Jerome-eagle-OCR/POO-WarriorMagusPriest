@@ -30,8 +30,7 @@ public class MagusTest {
             magus.present();
             assertEquals("""
                     Type de personnage : Mage
-                    Point(s) de vie : 15
-                    Point(s) d'attaque : 15
+                    Point(s) de vie : 15, Point(s) d'attaque : 15
                     
                     """, outContent.toString().replace("\r\n", "\n"));
         }
