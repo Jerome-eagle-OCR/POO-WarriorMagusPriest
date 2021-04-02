@@ -1,7 +1,5 @@
 package jerome.eagle.OCR;
 
-import java.util.Arrays;
-
 public class Character {
 
     protected int healthPoints;
