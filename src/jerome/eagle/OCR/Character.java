@@ -62,7 +62,7 @@ public class Character {
             strongest = compareCharacters(this.attackPoints, character.attackPoints, character);
             if (strongest.equals("") || strongest.equals(this)) {
                 displayWinnerSentence(this.name);
-                return strongest;
+                return this;
             } else {
                 displayWinnerSentence(character.name);
                 return strongest;
