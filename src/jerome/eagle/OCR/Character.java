@@ -34,44 +34,41 @@ public class Character {
 
     /**
      * Compares characters points (heath or attack)
-     * @param thisPoints attacking character's points
-     * @param characterPoints attacked character's points
-     * @param character attacked character
-     * @return return strongest character
+     * @param thisPoints comparing character's points
+     * @param characterPoints compared character's points
+     * @param character compared character
+     * @return return strongest character regarding compared points type
      */
-    private Object compareCharacters(int thisPoints, int characterPoints, Character character) {
+    private Character compareCharacters(int thisPoints, int characterPoints, Character character) {
         int comparePoints = thisPoints - characterPoints;
         if (comparePoints > 0) {
             return this;
         } else if (comparePoints < 0) {
             return character;
         } else {
-            return "";
+            return null;
         }
         }
 
     /**
      * Compares two characters first on health points, if tied then on attack points, if tied first character wins
-     * @param character attacked character
-     * @return final strongest and so winner
+     * @param character compared character
+     * @return strongest and so winner
      */
-    protected Object winner(Character character) {
+    protected Character amIStrongerThanYou(Character character) {
         System.out.println("Le " + this.name + " se mesure au " + character.name + " :");
-        Object strongest = compareCharacters(this.healthPoints, character.healthPoints, character);
-        if (strongest.equals("")) {
+        Character strongest = compareCharacters(this.healthPoints, character.healthPoints, character);
+        if (strongest==null) {
             strongest = compareCharacters(this.attackPoints, character.attackPoints, character);
-            if (strongest.equals("") || strongest.equals(this)) {
+            if (strongest==null || strongest==this) {
                 displayWinnerSentence(this.name);
                 return this;
             } else {
-                displayWinnerSentence(character.name);
+                displayWinnerSentence(strongest.name);
                 return strongest;
             }
-        } else if (strongest.equals(this)) {
-            displayWinnerSentence(this.name);
-            return strongest;
         } else {
-            displayWinnerSentence(character.name);
+            displayWinnerSentence(strongest.name);
             return strongest;
         }
     }
