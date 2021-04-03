@@ -63,14 +63,10 @@ public class Character {
             if (strongest==null || strongest==this) {
                 displayWinnerSentence(this.name);
                 return this;
-            } else {
-                displayWinnerSentence(strongest.name);
-                return strongest;
             }
-        } else {
-            displayWinnerSentence(strongest.name);
-            return strongest;
         }
+        displayWinnerSentence(strongest.name);
+        return strongest;
     }
 
     /**
