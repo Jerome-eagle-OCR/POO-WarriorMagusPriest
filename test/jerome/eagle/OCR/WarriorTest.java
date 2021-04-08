@@ -30,8 +30,8 @@ public class WarriorTest {
             warrior.present();
             assertEquals("""
                     Type de personnage : Guerrier
-                    Point(s) de vie : 10, Point(s) d'attaque : 10
-                    
+                    Point(s) de vie : 10
+                                        
                     """, outContent.toString().replace("\r\n", "\n"));
         }
     }

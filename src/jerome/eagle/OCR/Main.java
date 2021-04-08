@@ -13,15 +13,15 @@ public class Main {
         Character strongest = warrior1.amIStrongerThanYou(magus1);
         System.out.println("(Object return test) " + strongest.name + " gagne !\n");
 
-        warrior1.actionOn(magus1);
+        warrior1.actionOn(magus1, warrior1.sword);
         strongest = warrior1.amIStrongerThanYou(magus1);
         System.out.println("(Object return test) " + strongest.name + " gagne !\n");
 
         Priest priest1 = new Priest();
         priest1.present();
-        priest1.actionOn(magus1);
+        priest1.actionOn(magus1, priest1.holyWater);
 
-        magus1.actionOn(warrior1);
+        magus1.actionOn(warrior1, magus1.potion);
         System.out.println("(Object return test) " + magus1.amIStrongerThanYou(warrior1).name + " gagne !\n");
     }
 }
